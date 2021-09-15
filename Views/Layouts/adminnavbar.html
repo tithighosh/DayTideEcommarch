@@ -1,0 +1,166 @@
+<section>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" readonly>
+            <i class="fab fa-yelp"></i>
+            Day Tide</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="AdminHome.html">
+                    <i class="fas fa-fw fa-home"></i>
+                    Home
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="far fa-eye"></i>
+                  See Users
+                </a>
+                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="AdminList.html">Admin</a></li>
+                  <li><a class="dropdown-item" href="ModeratorList.html">Moderator</a></li>
+                  <li><a class="dropdown-item" href="CustomerList.html">Customer</a></li>
+                  <li><a class="dropdown-item" href="DeleveryManList.html">Delivery Man</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-plus"></i>
+                  Add Users
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="AddAdmin.html">Admin</a></li>
+                  <li><a class="dropdown-item" href="AddModerator.html">Moderator</a></li>
+                  <li><a class="dropdown-item" href="AddDelMan.html">Delivery Man</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="DelManReq.html">
+                    <i class="far fa-eye"></i>
+                    Pending SignUp
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="OrderRequest.html">
+                    <i class="fas fa-cart-plus"></i>
+                    Pending Order Request
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="OrderHistory.html">
+                    <i class="fas fa-cart-plus"></i>
+                    Order History
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="viewApplication.html">
+                    <i class="far fa-eye"></i>
+                    Application
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="Mynotification.html">
+                    <i class="far fa-comment"></i>
+                    Notifications
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="PostedNotification.html">
+                    <i class="far fa-comment"></i>
+                    Posted Notifications
+                </a>
+              </li>
+            </ul>
+            <ul>
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 "><b>
+                          <div style="text-decoration:rgb(249, 255, 254);"id="uname"></div>
+                        </b></span>
+                        <img class="img-profile rounded-circle"
+                             src="../../Assets/Users/">
+                    </a>
+
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                         aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="Adprofile.html">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                        <!-- <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/Logout" data-toggle="modal" data-target="#ChangepassModal">
+                            Change Password
+                        </a>
+                    </div> -->
+
+                </li>
+
+            </ul>
+      </nav>
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+     <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" onclick=logout()>Logout</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- <div class="modal fade" id="ChangepassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sure To Change password?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select Change password to Change your Existing Password</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/ChangePassword/Index">Change Password</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+</section>
+<script>
+  function logout()
+  {
+    eraseCookie("userid")
+    eraseCookie("pass")
+    eraseCookie("Type")
+    window.location="../Login/index.html"
+  }
+function eraseCookie(name) {   
+    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+</script>

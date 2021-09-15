@@ -1,0 +1,167 @@
+<section>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary ">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Day Tide</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="ModeratorHome.html">
+                    <i class="fas fa-fw fa-home"></i>
+                    Home
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-user-plus"></i>
+                  Add User
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="AddDeliveryMan.html">Delivery Man</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-fw fa-wrench"></i>
+                  Edit User 
+                </a>
+                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="EditDeliveryMan.html">Delivery Man</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="AddCategory.html">
+                    <i class="fas fa-plus"></i>
+                    Add Category
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="EditCategory.html">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    Edit Category
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="AddProduct.html">
+                    <i class="fas fa-cart-plus"></i>
+                    Add Product
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="EditProduct.html">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    Edit Product
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active-toggle btn btn-primary" aria-current="page" href="CheckOrder.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    Check Order
+                </a>
+              </li>
+            </ul>
+            <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 "><b></b></span>
+                        <div id="picture11">
+
+                        </div>
+                    </a>
+
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                         aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="MyProfile.html">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/Logout" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+
+                </li>
+
+            </ul>
+      </nav>
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary" id="logout" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<script>
+
+$(document).ready(function(){
+
+  UserId=getCookie('userid');
+
+  $.ajax({
+		url:"http://localhost:2293/api/moderator/"+UserId,
+		complete:function(xmlHttp,status){
+			if(xmlHttp.status==200){
+
+				var data=xmlHttp.responseJSON;
+
+        pic="<img style=' margin-top:-25px; float:right; width:15%; hight:15%' class='img-profile rounded-circle' src='data:image/png;base64,"+data.picture+"'>";
+
+        $("#picture11").html(pic);
+      
+			
+			}else{
+				alert(xmlHttp.statusText);
+			}
+		}
+	});
+
+})
+
+
+  function logout(){
+    eraseCookie("userid");
+  }
+
+  function eraseCookie(name) {   
+      document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      window.location='../../Views/Login/index.html'
+  }
+
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+</script>
